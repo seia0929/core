@@ -202,7 +202,7 @@ export const EamuseRoute = (router: EamuseRootRouter): RequestHandler => {
 
       (info as any).host = forwardedHost
         ? stripPort(forwardedHost)
-        : stripPort(req.get('host') || req.hostname);
+        : req.hostname;
       (info as any).protocol = forwardedProto || req.protocol;
       (info as any).proxy = Boolean(forwardedHost || forwardedProto);
     }
